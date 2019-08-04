@@ -1,0 +1,42 @@
+{
+  "name": "ssr-node",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev:build-client": "NODE_ENV=development webpack --config webpack.client.config.babel.js --mode=development -w",
+    "dev:build-server": "NODE_ENV=development webpack --config webpack.server.config.babel.js --mode=development -w",
+    "dev:start": "nodemon ./dist/server.js",
+    "dev": "npm-run-all --parallel dev:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wecreatesoftware/redux-higher-order-reducers": "5.1.0",
+    "express": "4.17.1",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-redux": "7.1.0",
+    "react-router-config": "5.0.1",
+    "react-router-dom": "5.0.1",
+    "redux": "4.0.4",
+    "redux-observable": "1.1.0",
+    "rxjs": "6.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-react": "7.0.0",
+    "@babel/register": "7.5.5",
+    "babel-loader": "8.0.6",
+    "extract-text-webpack-plugin": "1.0.1",
+    "html-webpack-plugin": "3.2.0",
+    "isomorphic-fetch": "2.2.1",
+    "nodemon": "1.19.1",
+    "npm-run-all": "4.1.5",
+    "webpack": "4.39.0",
+    "webpack-cli": "3.3.6",
+    "webpack-node-externals": "1.7.2"
+  },
+  "description": ""
+}
