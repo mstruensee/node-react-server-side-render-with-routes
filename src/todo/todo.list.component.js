@@ -24,7 +24,7 @@ export const TodoListComponent = memo(() => {
     return (
         <ul>
             {
-                (todos || []).map(todo => console.log(todo) || (
+                (todos || []).map(todo => (
                         <TodoComponent
                             key={ todo.id }
                             todo={ todo }
