@@ -6,7 +6,7 @@ import {
 } from "rxjs/operators"
 import {
     TODO_FETCH,
-    TODO_REDUCER
+    TODO_REDUCER,
 } from "./todo.types"
 import { fetchTodos } from "./todos.api"
 
@@ -16,5 +16,5 @@ export const todoEpic = action$ => action$.pipe(
     map(payload => setListAction({
         reducerName: TODO_REDUCER,
         payload,
-    }))
+    })),
 )

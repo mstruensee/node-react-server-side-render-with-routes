@@ -5,7 +5,7 @@ import ReactDOMServer from "react-dom/server"
 import { Provider } from "react-redux"
 import {
     matchPath,
-    StaticRouter
+    StaticRouter,
 } from "react-router-dom"
 import { createStore } from "redux"
 import { App } from "./app"
@@ -31,7 +31,7 @@ app.get("*", (req, res) => {
     promise.then(data => {
         const context = {}
         const preloadedState = data ? {
-            [ currentRoute.reducerName ]: data
+            [ currentRoute.reducerName ]: data,
         } : {}
         const store = createStore(reducers, preloadedState)
 
@@ -43,7 +43,7 @@ app.get("*", (req, res) => {
                 >
                     <App />
                 </StaticRouter>
-            </Provider>
+            </Provider>,
         )
 
         const indexFile = path.resolve("./dist/index.html")
@@ -65,8 +65,8 @@ app.get("*", (req, res) => {
                 .replace("<div id=\"app\"></div>", `<div id="app">${ app }</div>`)
                 .replace(
                     "window.__PRELOADED_STATE__",
-                    `window.__PRELOADED_STATE__ = ${ JSON.stringify(store.getState()) }`
-                )
+                    `window.__PRELOADED_STATE__ = ${ JSON.stringify(store.getState()) }`,
+                ),
             )
         })
     })

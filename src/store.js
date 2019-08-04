@@ -12,7 +12,7 @@ import { epics } from "./epics"
 const epicMiddleware = createEpicMiddleware({
     dependencies: {
         ajax,
-        getJSON: ajax.getJSON
+        getJSON: ajax.getJSON,
     },
 })
 
@@ -23,7 +23,7 @@ export const store = ({ preloadedState }) => {
         composeEnhancers =
             __REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
                 name: "app",
-            }) ||  compose
+            }) || compose
     } else {
         composeEnhancers = compose
     }

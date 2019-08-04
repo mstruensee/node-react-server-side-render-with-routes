@@ -2,7 +2,7 @@ import React, { memo } from "react"
 import {
     NavLink,
     Route,
-    Switch
+    Switch,
 } from "react-router-dom"
 import { Routes } from "./routes"
 
