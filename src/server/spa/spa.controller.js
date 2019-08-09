@@ -29,9 +29,13 @@ export class SPAController extends BaseController {
     }
 
     spa(req, res) {
-        const currentRoute = Routes.find(route => matchPath(req.url, route)) || {}
+        const currentRoute = Routes.find(route => matchPath(req.path, route)) || {}
         let promise
-
+console.log({
+    path: req.path,
+    Routes,
+    currentRoute
+})
         if (currentRoute.preloadedState) {
             promise = currentRoute.preloadedState()
         } else {
@@ -54,7 +58,7 @@ export class SPAController extends BaseController {
                 </Provider>,
             )
 
-            const indexFile = path.resolve("./dist/index.html")
+            const indexFile = path.resolve("./dist/static/index.html")
             fs.readFile(indexFile, "utf8", (err, markup) => {
                 if (err) {
                     console.error("Something went wrong:", err)

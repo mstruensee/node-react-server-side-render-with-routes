@@ -6,7 +6,7 @@ module.exports = {
     entry: "./src/client/client.js",
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "[name].js"
+        filename: "static/[name].js"
     },
     module: {
         rules: [
@@ -21,7 +21,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             hash: true,
             template: "src/client/index.html",
-            filename: "index.html",
+            filename: "static/index.html",
             minify: {
                 collapseWhitespace: false
             },

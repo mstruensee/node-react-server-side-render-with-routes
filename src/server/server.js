@@ -16,7 +16,7 @@ class Server {
         const app = express()
         app.use(cors())
         app.use(morgan('[INFO] [:date[clf]] :method :url :status :res[content-length] - :response-time ms'))
-        app.use("/", express.static("./dist"))
+        app.use("/static", express.static("./dist/static"))
 
         new TodoController({ app })
 
