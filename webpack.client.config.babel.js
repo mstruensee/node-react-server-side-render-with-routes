@@ -3,10 +3,10 @@ import path from "path"
 
 module.exports = {
     devtool: "cheap-module-eval-source-map",
-    entry: "./src/client.js",
+    entry: "./src/client/client.js",
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "[name].js"
+        filename: "static/[name].js"
     },
     module: {
         rules: [
@@ -20,8 +20,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
-            template: "src/index.html",
-            filename: "index.html",
+            template: "src/client/index.html",
+            filename: "static/index.html",
             minify: {
                 collapseWhitespace: false
             },

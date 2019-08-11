@@ -8,13 +8,13 @@ import {
     TODO_FETCH,
     TODO_REDUCER,
 } from "./todo.types"
-import { fetchTodos } from "./todos.api"
 
-export const todoEpic = action$ => action$.pipe(
+export const todoEpic = (action$, state$, { getJSON }) => action$.pipe(
     ofType(TODO_FETCH),
-    mergeMap(fetchTodos),
-    map(payload => setListAction({
+    mergeMap(() => getJSON("/api/todo")),
+    map(payload => ({
         reducerName: TODO_REDUCER,
         payload,
     })),
+    map(setListAction),
 )

@@ -21,6 +21,8 @@ export const TodoListComponent = memo(() => {
         }
     }, [])
 
+    if (todos === TODO_REDUCER_INITIAL_STATE) return "Loading" //todo ... make better, this was here to see the api call happening
+
     return (
         <ul>
             {

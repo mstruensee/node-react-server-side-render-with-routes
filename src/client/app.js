@@ -4,7 +4,7 @@ import {
     Route,
     Switch,
 } from "react-router-dom"
-import { Routes } from "./routes"
+import { Routes } from "./route/routes"
 
 export const App = memo(() => (
     <div>{/* todo use Routes.map here? */ }

@@ -1,4 +1,3 @@
-/* global __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ */
 import { ajax } from "rxjs/ajax"
 import {
     applyMiddleware,
@@ -17,16 +16,12 @@ const epicMiddleware = createEpicMiddleware({
 })
 
 export const store = ({ preloadedState }) => {
-    let composeEnhancers
-
-    if (typeof __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === "function") {
-        composeEnhancers =
-            __REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    const composeEnhancers =
+        typeof window === "object" &&
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+            window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
                 name: "app",
-            }) || compose
-    } else {
-        composeEnhancers = compose
-    }
+            }) : compose
 
     const store = createStore(
         reducers,
