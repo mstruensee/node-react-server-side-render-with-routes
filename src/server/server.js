@@ -5,7 +5,7 @@ import { Logger } from "./util/logger"
 import cors from "cors"
 import morgan from 'morgan'
 
-const port = 3000
+const port = 3001
 
 class Server {
     constructor() {
